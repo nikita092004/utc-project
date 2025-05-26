@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            background: #f2f2f2;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        fieldset {
+            border: none;
+            margin-bottom: 20px;
+        }
+        label {
+            display: inline-block;
+            margin: 5px;
+        }
+        input[type=radio] {
+            margin-right: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h2>Quiz</h2>
+    <form action="/submit_quiz" method="post">
+        {% for question in questions %}
+        <fieldset>
+            <legend>{{ question[1] }}</legend>
+            <label><input type="radio" name="q{{ question[0] }}" value="A" required> {{ question[2] }}</label><br>
+            <label><input type="radio" name="q{{ question[0] }}" value="B" required> {{ question[3] }}</label><br>
+            <label><input type="radio" name="q{{ question[0] }}" value="C" required> {{ question[4] }}</label><br>
+            <label><input type="radio" name="q{{ question[0] }}" value="D" required> {{ question[5] }}</label><br>
+        </fieldset>
+        {% endfor %}
+        <button type="submit">Submit Quiz</button>
+    </form>
+</body>
+</html>

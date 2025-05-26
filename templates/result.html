@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .result {
+            display: inline-block;
+            text-align: left;
+            background: #f2f2f2;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Your Quiz Result</h2>
+    <div class="result">
+        <p id="score">Score: </p>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const score = params.get("score");
+        document.getElementById("score").innerText = "Score: " + score;
+    </script>
+</body>
+</html>
